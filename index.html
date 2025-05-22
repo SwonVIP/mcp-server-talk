@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>My Presentation</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title Slide -->
+        <section>
+          <h1>Presentation Title</h1>
+          <h3>Subtitle</h3>
+          <p>Author Name</p>
+        </section>
+
+        <!-- Introduction Slide -->
+        <section>
+          <h2>Introduction</h2>
+          <p>This is a basic reveal.js presentation.</p>
+          <ul>
+            <li>Point 1</li>
+            <li>Point 2</li>
+            <li>Point 3</li>
+          </ul>
+        </section>
+
+        <!-- Vertical Slides Example -->
+        <section>
+          <section>
+            <h2>Vertical Slides</h2>
+            <p>Press Down Arrow to navigate down</p>
+          </section>
+          <section>
+            <h2>Slide 2</h2>
+            <p>This is a nested vertical slide</p>
+          </section>
+          <section>
+            <h2>Slide 3</h2>
+            <p>Last vertical slide</p>
+          </section>
+        </section>
+
+        <!-- Color Background Example -->
+        <section data-background="#4d7e65">
+          <h2>Color Background</h2>
+          <p>This slide has a custom background color</p>
+        </section>
+
+        <!-- Gradient Background Example -->
+        <section data-background="linear-gradient(to bottom, #283b95, #17b2c3)">
+          <h2>Gradient Background</h2>
+          <p>This slide has a gradient background</p>
+        </section>
+
+        <!-- Auto-Animate Example -->
+        <section data-auto-animate>
+          <h2 style="margin-top: 100px; font-size: 1.5em; color: #5c5c5c">
+            Auto Animate
+          </h2>
+          <p>First slide</p>
+        </section>
+        <section data-auto-animate>
+          <h2 style="margin-top: 200px; font-size: 3em; color: #ff5757">
+            Auto Animate
+          </h2>
+          <p>Second slide with automatically animated transitions</p>
+        </section>
+
+        <!-- Advanced Fragments Example -->
+        <section>
+          <h2>Advanced Fragments</h2>
+          <p>Elements appear with different animations:</p>
+          <p class="fragment fade-in">Fade in</p>
+          <p class="fragment fade-up">Fade up</p>
+          <p class="fragment fade-down">Fade down</p>
+          <p class="fragment zoom-in">Zoom in</p>
+          <p class="fragment highlight-red">Highlight red</p>
+        </section>
+
+        <!-- Custom Fragment Order -->
+        <section>
+          <h2>Custom Fragment Order</h2>
+          <p class="fragment" data-fragment-index="3">This appears third</p>
+          <p class="fragment" data-fragment-index="1">This appears first</p>
+          <p class="fragment" data-fragment-index="2">This appears second</p>
+        </section>
+
+        <!-- Slide Transition Example -->
+        <section data-transition="zoom">
+          <h2>Zoom Transition</h2>
+          <p>This slide uses a zoom transition</p>
+        </section>
+        <section data-transition="fade">
+          <h2>Fade Transition</h2>
+          <p>This slide uses a fade transition</p>
+        </section>
+        <section data-transition="convex">
+          <h2>Convex Transition</h2>
+          <p>This slide uses a convex transition</p>
+        </section>
+
+        <!-- Image Stack Example -->
+        <section>
+          <h2>Image Stack</h2>
+          <div class="r-stack">
+            <img
+              class="fragment"
+              src="https://placekitten.com/450/300"
+              width="450"
+              height="300"
+            />
+            <img
+              class="fragment"
+              src="https://placekitten.com/300/450"
+              width="300"
+              height="450"
+            />
+            <img
+              class="fragment"
+              src="https://placekitten.com/400/400"
+              width="400"
+              height="400"
+            />
+          </div>
+        </section>
+
+        <!-- Code Example Slide -->
+        <section>
+          <h2>Code Example</h2>
+          <pre><code class="hljs javascript" data-trim data-line-numbers>
+            function example() {
+              console.log("Hello, World!");
+              return true;
+            }
+          </code></pre>
+        </section>
+
+        <!-- Speaker Notes Example -->
+        <section>
+          <h2>Speaker Notes</h2>
+          <p>This slide has speaker notes (press 's' to view)</p>
+          <aside class="notes">
+            These are speaker notes only visible in speaker view. - Point 1 to
+            remember - Point 2 to remember - Timing: spend about 30 seconds on
+            this slide
+          </aside>
+        </section>
+
+        <!-- Thank You Slide -->
+        <section>
+          <h1>Thank You</h1>
+          <p>Any questions?</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        controls: true,
+        progress: true,
+        slideNumber: true,
+        center: true,
+        transition: "slide", // none/fade/slide/convex/concave/zoom
+        backgroundTransition: "fade", // none/fade/slide/convex/concave/zoom
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>

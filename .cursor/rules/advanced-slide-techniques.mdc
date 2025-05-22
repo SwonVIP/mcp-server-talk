@@ -1,0 +1,190 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+<rule>
+name: advanced_slide_techniques
+description: Advanced techniques for creating visually engaging reveal.js slides
+
+# Advanced reveal.js Slide Techniques
+
+## Basic Slide Structure
+- Each slide is contained in a `<section>` element
+- Vertical slides are nested `<section>` elements
+- Use data attributes to control slide behavior
+
+## Advanced Visual Effects
+
+### 1. Background Transitions
+```html
+<section data-background-transition="zoom">
+  <h2>Background Transition</h2>
+</section>
+```
+
+### 2. Custom Backgrounds
+```html
+<!-- Color background -->
+<section data-background="#4d7e65">
+  <h2>Color Background</h2>
+</section>
+
+<!-- Image background -->
+<section data-background="image.jpg">
+  <h2>Image Background</h2>
+</section>
+
+<!-- Video background -->
+<section data-background-video="video.mp4,video.webm">
+  <h2>Video Background</h2>
+</section>
+
+<!-- Gradient background -->
+<section data-background="linear-gradient(to bottom, #283b95, #17b2c3)">
+  <h2>Gradient Background</h2>
+</section>
+```
+
+### 3. Auto-Animate
+Add `data-auto-animate` to two consecutive slides with matching elements:
+
+```html
+<section data-auto-animate>
+  <h2 style="margin-top: 100px; font-size: 1.5em;">Auto Animate</h2>
+</section>
+<section data-auto-animate>
+  <h2 style="margin-top: 200px; font-size: 3em;">Auto Animate</h2>
+</section>
+```
+
+### 4. Advanced Fragments
+```html
+<!-- Appear in sequence -->
+<p class="fragment">Appears first</p>
+<p class="fragment">Appears second</p>
+
+<!-- Different animations -->
+<p class="fragment fade-in">Fade in</p>
+<p class="fragment fade-up">Fade up</p>
+<p class="fragment fade-down">Fade down</p>
+<p class="fragment fade-left">Fade left</p>
+<p class="fragment fade-right">Fade right</p>
+<p class="fragment zoom-in">Zoom in</p>
+<p class="fragment highlight-red">Highlight red</p>
+<p class="fragment highlight-blue">Highlight blue</p>
+<p class="fragment highlight-green">Highlight green</p>
+
+<!-- Custom order -->
+<p class="fragment" data-fragment-index="3">Third</p>
+<p class="fragment" data-fragment-index="1">First</p>
+<p class="fragment" data-fragment-index="2">Second</p>
+```
+
+### 5. Transitions
+```html
+<section data-transition="zoom">Zoom</section>
+<section data-transition="fade">Fade</section>
+<section data-transition="slide">Slide</section>
+<section data-transition="convex">Convex</section>
+<section data-transition="concave">Concave</section>
+<section data-transition="none">None</section>
+```
+
+### 6. Advanced Markdown
+```html
+<section data-markdown>
+  <textarea data-template>
+    ## Slide with Markdown
+
+    * Bullet point
+    * Another point
+
+    ---
+
+    ## Second slide
+
+    ```js
+    function example() {
+      return "code";
+    }
+    ```
+  </textarea>
+</section>
+```
+
+### 7. Embedding Content
+```html
+<!-- iframes -->
+<section>
+  <h2>Embedded Website</h2>
+  <iframe src="https://example.com" width="800" height="400"></iframe>
+</section>
+
+<!-- Math equations (MathJax) -->
+<section>
+  <h2>Math Equation</h2>
+  \[ E = mc^2 \]
+</section>
+```
+
+### 8. Advanced Layout with Grid
+```html
+<section>
+  <div class="r-stack">
+    <img class="fragment" src="image1.png">
+    <img class="fragment" src="image2.png">
+    <img class="fragment" src="image3.png">
+  </div>
+</section>
+```
+
+### 9. Speaker Notes
+```html
+<section>
+  <h2>With speaker notes</h2>
+  <p>Visible content</p>
+  <aside class="notes">
+    Notes only visible in speaker view.
+    Press 's' to view.
+  </aside>
+</section>
+```
+
+### 10. Presentation Controls
+```javascript
+// Add to your initialization script
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+
+  // Display a presentation progress bar
+  progress: true,
+
+  // Display the page number of the current slide
+  slideNumber: true,
+
+  // Push each slide change to the browser history
+  history: true,
+
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+
+  // Enable the slide overview mode
+  overview: true,
+
+  // Vertical centering of slides
+  center: true,
+
+  // Enable touch navigation on devices with touch input
+  touch: true,
+
+  // Add transition animations to background slides
+  backgroundTransition: 'slide'
+});
+```
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
