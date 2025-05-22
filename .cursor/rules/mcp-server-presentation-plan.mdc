@@ -1,0 +1,133 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+<rule>
+name: mcp_server_presentation_plan
+description: Slide plan for explaining MCP servers to a technical audience
+
+# MCP Server Presentation Plan
+
+## Slide 1: Introduction
+- Title: "Agentic Coding’s Secret Weapon"
+- Subtitle: "A Guide and Demo of Model Context Protocol (MCP) Servers"
+
+## Slide 2: The Toolbox Analogy
+- Just as craftspeople need tools to accomplish tasks:
+- [IMAGE PLACEHOLDER: Title slide with toolbox visual]
+  - Screwdrivers for connecting/fastening
+  - Measuring tools for gathering information
+  - Power tools for complex operations
+- LLMs need MCP servers to interact with the digital world
+  - MCP servers are specialized tools that extend LLM capabilities
+  - Each server solves specific problems (file access, API connections, etc.)
+- [IMAGE PLACEHOLDER: Comparison between physical toolbox and digital toolbox for LLMs]
+
+## Slide 3: The Computer Interface Evolution
+- Historical computer interface problems:
+  - Early days: Proprietary connectors for each component (GPUs, HDDs, printers)
+  - Each manufacturer had different standards
+  - Connecting N devices to M computers: M×N problem
+- Evolution to standardized interfaces:
+  - IDE/SATA for storage
+  - USB for peripherals
+  - PCIe for expansion cards
+- [IMAGE PLACEHOLDER: Timeline showing evolution of computer interfaces]
+
+## Slide 4: MCP as the "USB-C for AI Applications"
+- Before MCP: Each AI integration required custom code
+  - M applications × N systems = M×N integrations
+- After MCP: Standardized protocol transforms problem
+  - M applications + N systems = M+N implementations
+- Just as USB-C standardized physical connections, MCP standardizes AI connections
+- [IMAGE PLACEHOLDER: Diagram showing M×N problem vs M+N solution with MCP]
+
+## Slide 5: Core MCP Architecture
+- Client-Server Architecture
+  - MCP Hosts: User-facing applications (Claude Desktop, IDEs like Cursor)
+  - MCP Clients: Components maintaining 1:1 connections with servers
+  - MCP Servers: Programs providing capabilities to AI models
+- Transport Layer: stdio for local connections, HTTP/SSE for remote
+- [IMAGE PLACEHOLDER: MCP architecture diagram showing components]
+
+## Slide 6: MCP Server Capabilities
+- Three main types of features:
+  1. Tools: Functions LLMs can call to perform actions
+     - Model-controlled, like a power tool the LLM operates
+  2. Resources: Context and data accessible to LLMs
+     - Like reference materials in a toolbox
+  3. Prompts: Templated messages and workflows
+     - Like instruction manuals for complex tools
+- [IMAGE PLACEHOLDER: Visual representation of the three capability types]
+
+## Slide 7: Communication Flow
+- How LLMs use MCP servers:
+  1. LLM selects appropriate Tool/Resource based on user request
+  2. Request sent as JSON-RPC message
+  3. Server validates and processes request
+  4. Server formats and returns response
+  5. LLM integrates response into final output
+- [IMAGE PLACEHOLDER: Flowchart of MCP communication process]
+
+## Slide 8: Implementation Details
+- Available SDKs: Python, TypeScript, Java, Kotlin, C#, Swift, Go, Rust
+- Deployment options:
+  - Docker containers
+  - Local installations
+  - SSE servers for multi-client use
+  - Remote servers (with authentication)
+- [IMAGE PLACEHOLDER: Code snippet showing simple MCP server implementation]
+
+## Slide 9: Security Considerations - Part 1
+- User consent and control is paramount
+- Security concerns with:
+  - Unvetted servers (supply chain risks)
+  - Limited invocation controls
+  - Lack of observability
+- [IMAGE PLACEHOLDER: Security risk visualization]
+
+## Slide 10: Security Considerations - Part 2
+- Key attack vectors:
+  - Tool name typosquatting
+  - Confused deputy problem
+  - Chrome extension sandbox escape
+  - Token passthrough (anti-pattern)
+- [IMAGE PLACEHOLDER: Attack vector diagram]
+
+## Slide 11: Best Practices
+- Apply traditional security measures
+  - Supply chain security
+  - Code scanning
+  - Version pinning
+- Implement robust consent and authorization flows
+- Use containerization for isolation
+- Follow API security best practices
+- [IMAGE PLACEHOLDER: Security best practices checklist]
+
+## Slide 12: Example Use Cases
+- IDE integration for context-aware coding assistance
+- Knowledge base querying
+- Data analysis pipelines
+- Complex API orchestration
+- [IMAGE PLACEHOLDER: Examples of MCP servers in production]
+
+## Slide 13: Future of MCP
+- Evolving specifications
+- Security enhancements
+- Public registries
+- Wider adoption across AI ecosystem
+- [IMAGE PLACEHOLDER: Roadmap visualization]
+
+## Slide 14: Conclusion
+- MCP standardizes AI-tool interactions
+- Transforms M×N problem into M+N solution
+- Enables secure, consistent extension of AI capabilities
+- Questions?
+- [IMAGE PLACEHOLDER: Closing visual with key takeaways]
+
+metadata:
+  priority: high
+  version: 1.0
+  author: Sven Scheffel
+</rule>

@@ -1,5 +1,72 @@
 ---
 description:
 globs:
-alwaysApply: false
+alwaysApply: true
 ---
+<rule>
+name: presentation_guidelines
+description: Guidelines for creating effective presentations with reveal.js
+
+# Presentation Structure Guidelines
+
+## General Structure
+- Keep slides simple and focused on one main point per slide
+- Use consistent styling throughout your presentation
+- Consider your audience's perspective and needs
+- Aim for 1-2 minutes per slide on average
+
+## Content Guidelines
+- Use short, concise bullet points instead of paragraphs
+- Include relevant images, diagrams, or charts to illustrate points
+- Keep code examples short and highlight important parts
+- Use transitions and animations purposefully, not gratuitously
+
+## Technical Tips
+- Test your presentation in the environment where you'll present
+- Ensure all media (images, videos) is properly loaded
+- Have a backup plan in case of technical difficulties
+- Practice navigating through your slides, including vertical navigation
+
+## reveal.js Features to Consider
+- Speaker notes (press 's' during presentation)
+- PDF export for handouts
+- Overview mode (press 'o' or 'ESC')
+- Slide fragments for step-by-step reveals
+- Code syntax highlighting
+- Markdown support for content
+- Auto-animate for smooth transitions between slides
+- Mobile touch navigation
+
+## Installation Options
+1. Basic setup: Download ZIP from GitHub and extract
+2. Full setup (recommended):
+   ```
+   git clone https://github.com/hakimel/reveal.js.git
+   cd reveal.js
+   npm install
+   npm start
+   ```
+3. Install from npm:
+   ```
+   npm install reveal.js
+   ```
+
+## Essential Keyboard Shortcuts
+- Next slide: Space, Right Arrow, Down Arrow, Page Down, 'n'
+- Previous slide: Left Arrow, Page Up, 'p'
+- Overview: 'Esc' or 'o'
+- Speaker notes: 's'
+- Fullscreen: 'f'
+- Zoom: Alt + click (or Ctrl + click for Windows)
+- Pause presentation: 'b' or '.'
+
+## Resources
+- Documentation: https://revealjs.com/
+- GitHub repository: https://github.com/hakimel/reveal.js/
+- Themes gallery: https://revealjs.com/themes/
+- Plugins: https://revealjs.com/plugins/
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>

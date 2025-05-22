@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>My Presentation</title>
+    <title>Agentic Coding's Secret Weapon</title>
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
@@ -15,154 +15,327 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .column {
+        flex: 1;
+        padding: 0 10px;
+      }
+      .highlight-blue {
+        color: #42affa;
+      }
+      .highlight-green {
+        color: #a0c980;
+      }
+      .highlight-red {
+        color: #ff6b6b;
+      }
+      .image-placeholder {
+        background-color: rgba(100, 100, 100, 0.3);
+        border: 2px dashed rgba(200, 200, 200, 0.5);
+        padding: 20px;
+        text-align: center;
+        margin: 10px 0;
+        font-style: italic;
+        color: rgba(200, 200, 200, 0.8);
+      }
+      .big-text {
+        font-size: 1.8em;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Title Slide -->
-        <section>
-          <h1>Presentation Title</h1>
-          <h3>Subtitle</h3>
-          <p>Author Name</p>
-        </section>
-
-        <!-- Introduction Slide -->
-        <section>
-          <h2>Introduction</h2>
-          <p>This is a basic reveal.js presentation.</p>
-          <ul>
-            <li>Point 1</li>
-            <li>Point 2</li>
-            <li>Point 3</li>
-          </ul>
-        </section>
-
-        <!-- Vertical Slides Example -->
-        <section>
-          <section>
-            <h2>Vertical Slides</h2>
-            <p>Press Down Arrow to navigate down</p>
-          </section>
-          <section>
-            <h2>Slide 2</h2>
-            <p>This is a nested vertical slide</p>
-          </section>
-          <section>
-            <h2>Slide 3</h2>
-            <p>Last vertical slide</p>
-          </section>
-        </section>
-
-        <!-- Color Background Example -->
-        <section data-background="#4d7e65">
-          <h2>Color Background</h2>
-          <p>This slide has a custom background color</p>
-        </section>
-
-        <!-- Gradient Background Example -->
-        <section data-background="linear-gradient(to bottom, #283b95, #17b2c3)">
-          <h2>Gradient Background</h2>
-          <p>This slide has a gradient background</p>
-        </section>
-
-        <!-- Auto-Animate Example -->
-        <section data-auto-animate>
-          <h2 style="margin-top: 100px; font-size: 1.5em; color: #5c5c5c">
-            Auto Animate
-          </h2>
-          <p>First slide</p>
-        </section>
-        <section data-auto-animate>
-          <h2 style="margin-top: 200px; font-size: 3em; color: #ff5757">
-            Auto Animate
-          </h2>
-          <p>Second slide with automatically animated transitions</p>
-        </section>
-
-        <!-- Advanced Fragments Example -->
-        <section>
-          <h2>Advanced Fragments</h2>
-          <p>Elements appear with different animations:</p>
-          <p class="fragment fade-in">Fade in</p>
-          <p class="fragment fade-up">Fade up</p>
-          <p class="fragment fade-down">Fade down</p>
-          <p class="fragment zoom-in">Zoom in</p>
-          <p class="fragment highlight-red">Highlight red</p>
-        </section>
-
-        <!-- Custom Fragment Order -->
-        <section>
-          <h2>Custom Fragment Order</h2>
-          <p class="fragment" data-fragment-index="3">This appears third</p>
-          <p class="fragment" data-fragment-index="1">This appears first</p>
-          <p class="fragment" data-fragment-index="2">This appears second</p>
-        </section>
-
-        <!-- Slide Transition Example -->
-        <section data-transition="zoom">
-          <h2>Zoom Transition</h2>
-          <p>This slide uses a zoom transition</p>
-        </section>
-        <section data-transition="fade">
-          <h2>Fade Transition</h2>
-          <p>This slide uses a fade transition</p>
-        </section>
-        <section data-transition="convex">
-          <h2>Convex Transition</h2>
-          <p>This slide uses a convex transition</p>
-        </section>
-
-        <!-- Image Stack Example -->
-        <section>
-          <h2>Image Stack</h2>
-          <div class="r-stack">
-            <img
-              class="fragment"
-              src="https://placekitten.com/450/300"
-              width="450"
-              height="300"
-            />
-            <img
-              class="fragment"
-              src="https://placekitten.com/300/450"
-              width="300"
-              height="450"
-            />
-            <img
-              class="fragment"
-              src="https://placekitten.com/400/400"
-              width="400"
-              height="400"
-            />
-          </div>
-        </section>
-
-        <!-- Code Example Slide -->
-        <section>
-          <h2>Code Example</h2>
-          <pre><code class="hljs javascript" data-trim data-line-numbers>
-            function example() {
-              console.log("Hello, World!");
-              return true;
-            }
-          </code></pre>
-        </section>
-
-        <!-- Speaker Notes Example -->
-        <section>
-          <h2>Speaker Notes</h2>
-          <p>This slide has speaker notes (press 's' to view)</p>
+        <!-- Slide 1: Introduction -->
+        <section
+          data-background="linear-gradient(to bottom right, #3a0647, #8b2455)"
+        >
+          <h1>Agentic Coding's Secret Weapon</h1>
+          <h3 class="fragment fade-up">Model Context Protocol</h3>
+          <p class="fragment fade-up">Sven Scheffel</p>
           <aside class="notes">
-            These are speaker notes only visible in speaker view. - Point 1 to
-            remember - Point 2 to remember - Timing: spend about 30 seconds on
-            this slide
+            Welcome everyone. Today I'll be introducing you to the Model Context
+            Protocol, or MCP, which has become one of the most powerful tools in
+            agentic coding. MCP servers enable LLMs to interact with the digital
+            world in powerful ways, and I'll explain how they work and why they
+            matter.
           </aside>
         </section>
 
-        <!-- Thank You Slide -->
+        <!-- Slide 2: The Toolbox Analogy -->
         <section>
-          <h1>Thank You</h1>
-          <p>Any questions?</p>
+          <section data-auto-animate>
+            <h2>The Toolbox Analogy</h2>
+            <div class="image-placeholder">Toolbox visual</div>
+            <aside class="notes">
+              Let's start with a simple analogy. Just as craftspeople need tools
+              for different tasks: - Screwdrivers for connecting things -
+              Measuring tools for information gathering - Power tools for
+              complex operations Similarly, LLMs need tools to interact with the
+              digital world effectively.
+            </aside>
+          </section>
+
+          <section data-auto-animate>
+            <h2>The Toolbox Analogy</h2>
+            <p class="big-text fragment">LLMs need specialized tools</p>
+            <div class="image-placeholder fragment">
+              Digital toolbox for LLMs
+            </div>
+            <aside class="notes">
+              MCP servers are these specialized tools. Each MCP server solves
+              specific problems - file access, API connections, database
+              queries. Without these tools, LLMs would be limited to just text
+              generation with no ability to take action in the real world.
+            </aside>
+          </section>
+        </section>
+
+        <!-- Slide 3: The Computer Interface Evolution -->
+        <section>
+          <h2>The M×N Problem</h2>
+          <div class="container">
+            <div class="column">
+              <div class="image-placeholder">Before standardization</div>
+            </div>
+            <div class="column">
+              <div class="image-placeholder">After standardization</div>
+            </div>
+          </div>
+          <aside class="notes">
+            The computer industry faced a similar problem before
+            standardization: - Early days: Proprietary connectors for each
+            component - Different standards per manufacturer - M×N problem:
+            Connecting N devices to M computers required M×N different
+            connectors This was solved through standardization: USB, SATA, PCIe.
+            The AI industry is at a similar inflection point with tool
+            integration.
+          </aside>
+        </section>
+
+        <!-- Slide 4: MCP as the "USB-C for AI Applications" -->
+        <section
+          data-background-transition="zoom"
+          data-background="linear-gradient(to bottom, #283b95, #17b2c3)"
+        >
+          <h2>The "USB-C for AI"</h2>
+          <div class="container">
+            <div class="column">
+              <p class="highlight-red big-text">M×N Problem</p>
+            </div>
+            <div class="column">
+              <p class="highlight-green big-text">M+N Solution</p>
+            </div>
+          </div>
+          <div class="image-placeholder fragment fade-in">
+            M×N vs M+N diagram
+          </div>
+          <aside class="notes">
+            Before MCP: Each AI integration required custom code - M
+            applications × N systems = M×N integrations After MCP: Standardized
+            protocol transforms problem - M applications + N systems = M+N
+            implementations Just as USB-C standardized physical connections, MCP
+            standardizes AI connections. This is a dramatic efficiency gain that
+            reduces development effort across the ecosystem.
+          </aside>
+        </section>
+
+        <!-- Slide 5a: Core MCP Architecture -->
+        <section data-auto-animate>
+          <h2>Core Architecture</h2>
+          <div class="image-placeholder">Architecture diagram</div>
+          <aside class="notes">
+            MCP uses a client-server architecture. It's designed to be
+            transport-agnostic and extensible. The standardized communication
+            protocol enables diverse components to work together. This design
+            allows for both local and remote operation depending on needs.
+          </aside>
+        </section>
+
+        <!-- Slide 5b: Core MCP Architecture - Components -->
+        <section data-auto-animate>
+          <h2>Core Architecture</h2>
+          <div class="image-placeholder">Components diagram</div>
+          <ul>
+            <li class="fragment">Hosts</li>
+            <li class="fragment">Clients</li>
+            <li class="fragment">Servers</li>
+            <li class="fragment">Transport Layer</li>
+          </ul>
+          <aside class="notes">
+            The key components are: - MCP Hosts: User-facing applications
+            (Claude Desktop, IDEs like Cursor) - MCP Clients: Components
+            maintaining 1:1 connections with servers - MCP Servers: Programs
+            providing capabilities to AI models - Transport Layer: stdio for
+            local, HTTP/SSE for remote connections Each component has a specific
+            role and together they create a flexible system.
+          </aside>
+        </section>
+
+        <!-- Slide 6: MCP Server Capabilities -->
+        <section>
+          <section>
+            <h2>Server Capabilities</h2>
+            <div class="image-placeholder">Capability overview</div>
+            <aside class="notes">
+              MCP servers expose three main types of features to clients. Each
+              serves a different purpose in the MCP ecosystem. I'll explain each
+              type in the following slides.
+            </aside>
+          </section>
+
+          <section>
+            <h2>Server Capabilities</h2>
+            <h3 class="highlight-blue">1. Tools</h3>
+            <div class="image-placeholder">Tools visualization</div>
+            <aside class="notes">
+              Tools are functions that the LLM can call to perform specific
+              actions. They are model-controlled, meaning the LLM decides when
+              to invoke them. Think of them like power tools the LLM operates -
+              they execute code, make API calls, query databases. For example, a
+              search_docs tool might let an LLM find information in a knowledge
+              base.
+            </aside>
+          </section>
+
+          <section>
+            <h2>Server Capabilities</h2>
+            <h3 class="highlight-green">2. Resources</h3>
+            <div class="image-placeholder">Resources visualization</div>
+            <aside class="notes">
+              Resources provide context and data the AI model can use. They're
+              like reference materials in a toolbox - files, logs, database
+              content. Unlike Tools, accessing Resources is typically initiated
+              by the Host application. Resources are conceptually similar to GET
+              requests without computation or side effects. For example, an IDE
+              integration might use a Resource to provide file context to the
+              model.
+            </aside>
+          </section>
+
+          <section>
+            <h2>Server Capabilities</h2>
+            <h3 class="highlight-red">3. Prompts</h3>
+            <div class="image-placeholder">Prompts visualization</div>
+            <aside class="notes">
+              Prompts are templated messages and workflows. They're like
+              instruction manuals for complex tools. Prompts are
+              user-controlled, not decided by the LLM. They ensure requests are
+              properly structured and consistent. The MCP server developer
+              provides these templates as the domain expert.
+            </aside>
+          </section>
+        </section>
+
+        <!-- Slide 7: Communication Flow -->
+        <section>
+          <h2>Communication Flow</h2>
+          <div class="image-placeholder">JSON-RPC flow diagram</div>
+          <aside class="notes">
+            The communication uses JSON-RPC 2.0 messages. The typical flow
+            involves: 1. LLM selects appropriate Tool/Resource based on user
+            request 2. Request sent as JSON-RPC message 3. Server validates
+            request parameters 4. Server processes and executes request 5.
+            Server formats and returns response 6. LLM integrates response into
+            final output This standardized protocol ensures consistent
+            communication between components.
+          </aside>
+        </section>
+
+        <!-- Slide 8: Implementation Details -->
+        <section>
+          <h2>Implementation</h2>
+          <div class="container">
+            <div class="column">
+              <div class="image-placeholder">SDK logos</div>
+            </div>
+            <div class="column">
+              <div class="image-placeholder">Deployment options</div>
+            </div>
+          </div>
+          <aside class="notes">
+            Available SDKs include: - Python, TypeScript - Java, Kotlin - C#,
+            Swift - Go, Rust (community) Deployment options: - Docker containers
+            - Local installations - SSE servers for multi-client use - Remote
+            servers with authentication This flexibility lets developers choose
+            the right tools and deployment models for their needs.
+          </aside>
+        </section>
+
+        <!-- Slide 9: Security Considerations -->
+        <section data-background="#4d0000">
+          <h2>Security Considerations</h2>
+          <div class="image-placeholder">Security diagram</div>
+          <p class="highlight-red">User consent and control is paramount</p>
+          <aside class="notes">
+            Security is critical because MCP servers can execute code. Key
+            concerns include: - Unvetted servers (supply chain risks) - Limited
+            invocation controls - Lack of observability Attack vectors include:
+            - Tool name typosquatting - Confused deputy problem - Chrome
+            extension sandbox escape - Token passthrough (anti-pattern) The
+            principle of least privilege should be enforced for all MCP servers.
+          </aside>
+        </section>
+
+        <!-- Slide 10: Best Practices -->
+        <section data-background="#002b36">
+          <h2>Best Practices</h2>
+          <div class="image-placeholder">Best practices visualization</div>
+          <aside class="notes">
+            Best practices include: Security measures: - Supply chain security -
+            Code scanning - Version pinning - Robust consent and authorization
+            flows Implementation strategies: - Containerization for isolation -
+            API security best practices - Proper error handling - Comprehensive
+            logging These practices help build secure, reliable MCP servers.
+          </aside>
+        </section>
+
+        <!-- Slide 11: Example Use Cases -->
+        <section data-background="linear-gradient(to bottom, #00396d, #0088cc)">
+          <h2>Example Use Cases</h2>
+          <div class="image-placeholder">Use cases diagram</div>
+          <aside class="notes">
+            Common use cases include: IDE Integration: - File system navigation
+            - Code search and analysis - Terminal execution Knowledge Base
+            Querying: - Internal documentation - Jira/Confluence integration -
+            Customer support data Data Analysis: - Database querying - Data
+            visualization - Analysis operations API Orchestration: - CRM
+            integration - Multi-API workflows - Service composition
+          </aside>
+        </section>
+
+        <!-- Slide 12: Future of MCP -->
+        <section>
+          <h2>The Future</h2>
+          <div class="image-placeholder">Roadmap visualization</div>
+          <aside class="notes">
+            The future of MCP includes: - Evolving specifications - Security
+            enhancements - Public registries - Wider adoption across AI
+            ecosystem The standard continues to develop with input from the
+            community. There are many opportunities to contribute to its
+            evolution.
+          </aside>
+        </section>
+
+        <!-- Slide 13: Conclusion -->
+        <section
+          data-background-transition="zoom"
+          data-background="linear-gradient(to bottom right, #3a0647, #8b2455)"
+        >
+          <h2>MCP Standardizes AI Integration</h2>
+          <p class="big-text highlight-blue fragment">M+N > M×N</p>
+          <h3 class="fragment">Questions?</h3>
+          <aside class="notes">
+            To summarize: - MCP standardizes AI-tool interactions - Transforms
+            M×N problem into M+N solution - Enables secure, consistent extension
+            of AI capabilities This is a fundamental shift in how we build
+            AI-powered applications. Are there any questions?
+          </aside>
         </section>
       </div>
     </div>
