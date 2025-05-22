@@ -46,6 +46,20 @@
       .big-text {
         font-size: 1.8em;
       }
+      footer {
+        font-size: 0.5em;
+        color: rgba(255, 255, 255, 0.6);
+        position: fixed;
+        left: 15px;
+        margin: 0;
+        z-index: 100;
+      }
+      .title-subtitle {
+        font-size: 1.4em;
+        margin-top: 0.5em;
+        margin-bottom: 2em;
+        color: rgba(255, 255, 255, 0.9);
+      }
     </style>
   </head>
   <body>
@@ -55,9 +69,13 @@
         <section
           data-background="linear-gradient(to bottom right, #3a0647, #8b2455)"
         >
-          <h1>Agentic Coding's Secret Weapon</h1>
-          <h3 class="fragment fade-up">Model Context Protocol</h3>
-          <p class="fragment fade-up">Sven Scheffel</p>
+          <h1 style="margin-bottom: 0.2em">Agentic Coding's Secret Weapon</h1>
+          <h2 class="fragment fade-up title-subtitle">
+            Model Context Protocol (MCP)
+          </h2>
+
+          <footer>IT Tech Talk · Sven Scheffel · 04.06.2025</footer>
+
           <aside class="notes">
             Welcome everyone. Today I'll be introducing you to the Model Context
             Protocol, or MCP, which has become one of the most powerful tools in
@@ -71,27 +89,29 @@
         <section>
           <section data-auto-animate>
             <h2>The Toolbox Analogy</h2>
-            <div class="image-placeholder">Toolbox visual</div>
+            <div class="r-stack">
+              <img
+                src="images/toolbox-emptyx.jpeg"
+                alt="Empty toolbox"
+                style="width: 400px"
+              />
+              <img
+                class="fragment"
+                src="images/toolbox-filled.jpeg"
+                alt="Filled toolbox with LLM tools"
+                style="width: 400px"
+              />
+            </div>
             <aside class="notes">
               Let's start with a simple analogy. Just as craftspeople need tools
               for different tasks: - Screwdrivers for connecting things -
               Measuring tools for information gathering - Power tools for
               complex operations Similarly, LLMs need tools to interact with the
-              digital world effectively.
-            </aside>
-          </section>
-
-          <section data-auto-animate>
-            <h2>The Toolbox Analogy</h2>
-            <p class="big-text fragment">LLMs need specialized tools</p>
-            <div class="image-placeholder fragment">
-              Digital toolbox for LLMs
-            </div>
-            <aside class="notes">
-              MCP servers are these specialized tools. Each MCP server solves
-              specific problems - file access, API connections, database
-              queries. Without these tools, LLMs would be limited to just text
-              generation with no ability to take action in the real world.
+              digital world effectively. MCP servers are these specialized
+              tools. Each MCP server solves specific problems - file access, API
+              connections, database queries. Without these tools, LLMs would be
+              limited to just text generation with no ability to take action in
+              the real world.
             </aside>
           </section>
         </section>
@@ -165,7 +185,6 @@
             <li class="fragment">Hosts</li>
             <li class="fragment">Clients</li>
             <li class="fragment">Servers</li>
-            <li class="fragment">Transport Layer</li>
           </ul>
           <aside class="notes">
             The key components are: - MCP Hosts: User-facing applications
