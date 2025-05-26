@@ -1,5 +1,72 @@
 ---
 description:
 globs:
-alwaysApply: false
+alwaysApply: true
 ---
+<rule>
+name: git_commit_push_workflow
+description: Standards for committing and pushing changes to maintain a clean Git history
+
+# Git Commit and Push Workflow
+
+## General Guidelines
+- Commit early and often, with focused changes
+- Use descriptive commit messages
+- Push changes at logical intervals
+
+## When to Commit
+- After completing a logical unit of work
+- Before switching to another task
+- When making significant progress on a feature
+- After fixing a bug
+- After refactoring code
+- After updating documentation
+
+## Commit Message Guidelines
+- Use the imperative mood (e.g., "Add feature" not "Added feature")
+- Start with a capital letter
+- Keep the first line under 50 characters
+- Add a blank line followed by more details if needed
+- Include references to issues/tickets when applicable
+
+## Examples of Good Commit Messages
+```
+Add MCP server architecture diagram to slide 5
+
+Update security considerations with latest best practices
+
+Fix broken transitions between slides 7 and 8
+
+Refactor slide structure to reduce text content
+```
+
+## Push Guidelines
+- Push changes at the end of your work session
+- Push after completing a feature
+- Push before creating a pull request
+- Push before moving to a different branch
+- Push after resolving merge conflicts
+
+## Post-Push Actions
+- Verify changes are reflected in the remote repository
+- Update collaborators if necessary
+- Create or update pull requests if applicable
+
+## Emergency Recovery
+If you need to recover from a bad commit:
+```
+# Undo the last commit but keep changes staged
+git reset --soft HEAD~1
+
+# Undo the last commit and discard changes
+git reset --hard HEAD~1
+
+# Fix a commit message
+git commit --amend -m "New message"
+```
+
+metadata:
+  priority: high
+  version: 1.0
+  author: AI Assistant
+</rule>

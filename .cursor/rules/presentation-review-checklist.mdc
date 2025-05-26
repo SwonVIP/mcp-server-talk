@@ -3,3 +3,97 @@ description:
 globs:
 alwaysApply: false
 ---
+<rule>
+name: presentation_review_checklist
+description: A checklist for evaluating the MCP server presentation
+
+# MCP Server Presentation Review Checklist
+
+## Content Review
+
+### Content Density (Updated)
+- [x] Slide 1 (Introduction): Good balance of content
+- [x] Slide 2 (Toolbox Analogy): Good balance with vertical slide split
+- [x] Slide 3 (Computer Interface Evolution): Two-column layout helps
+- [x] Slide 4 (USB-C Analogy): Good balance with visual elements
+- [x] Slide 5a (Core Architecture - Overview): Good focus on high-level concepts
+- [x] Slide 5b (Core Architecture - Components): Well organized with two-column layout
+- [x] Slide 6 (Capabilities): Well split across vertical slides
+- [x] Slide 7a (Communication Flow - Overview): Focused on key concepts
+- [x] Slide 7b (Communication Flow - Steps): Better organized with two-column layout
+- [x] Slide 8 (Implementation): Good balance with code example
+- [x] Slide 9 (Security Part 1): Good balance
+- [x] Slide 10 (Security Part 2): Good balance
+- [x] Slide 11a (Best Practices - Security): Focused content
+- [x] Slide 11b (Best Practices - Implementation): Well-structured with new points
+- [x] Slide 12 (Use Cases): Well structured with stacked fragments
+- [x] Slide 13 (Future): Good balance
+- [x] Slide 14 (Conclusion): Good balance
+
+### Original Splitting Issues (Resolved)
+1. ✅ Slide 5 (Core Architecture): Split into:
+   - 5a: Overview of client-server architecture
+   - 5b: Detailed components with two-column layout
+
+2. ✅ Slide 7 (Communication Flow): Split into:
+   - 7a: Overview of the flow and protocol
+   - 7b: Detailed steps with two-column layout
+
+3. ✅ Slide 11 (Best Practices): Split into:
+   - 11a: Security measures
+   - 11b: Implementation practices with added content
+
+## Visual Appeal
+
+### Background and Color
+- [x] Appropriate use of background colors/gradients
+  - Title slide has purple gradient
+  - USB-C slide has blue gradient
+  - Security slides have red background
+  - Best practices slides have dark blue background
+  - Use cases slide has blue gradient
+  - Conclusion matches title slide for cohesion
+- [x] Consistent color scheme throughout
+- [x] Good contrast between text and backgrounds
+- [x] Strategic use of highlight colors for emphasis (blue, green, red)
+
+### Typography
+- [x] Consistent font sizes across similar elements
+- [x] Sufficient text size for readability
+- [x] Limited font variety (using theme defaults)
+
+### Animations and Transitions
+- [x] Effective use of fragments for sequential reveals
+- [x] Appropriate slide transitions (zoom for section changes)
+- [x] Auto-animate features used effectively between related slides
+- [x] Consistent animation style throughout
+  - fade-up for sequential points
+  - fade-in for supporting details
+  - fade-right/left for two-column layouts
+
+### Layout
+- [x] Good use of space on each slide
+- [x] Logical arrangement of content
+- [x] Consistent positioning of recurring elements
+- [x] Effective use of columns and grids where appropriate
+  - Two-column layouts on complex slides
+  - r-stack for Use Cases slide
+
+### Images
+- [x] Placeholders clearly marked for replacement
+- [x] Visual balance between text and images
+- [x] Images properly sized and positioned
+
+## Final Recommendations
+
+1. ✅ Split content-heavy slides as identified above - COMPLETED
+2. Replace image placeholders with actual visuals before presenting
+3. Review speaker notes before presenting
+4. Consider adding additional auto-animate transitions between other conceptually related slides
+5. Test presentation flow with a timer to ensure appropriate pacing (aim for 1-2 minutes per slide)
+
+metadata:
+  priority: high
+  version: 1.0
+  author: AI Assistant
+</rule>

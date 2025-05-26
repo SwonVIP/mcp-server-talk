@@ -1,11 +1,53 @@
-<p align="center">
-  <a href="https://revealjs.com">
-  <img src="https://hakim-static.s3.amazonaws.com/reveal-js/logo/v1/reveal-black-text-sticker.png" alt="reveal.js" width="500">
-  </a>
-  <br><br>
-  <a href="https://github.com/hakimel/reveal.js/actions"><img src="https://github.com/hakimel/reveal.js/workflows/tests/badge.svg"></a>
-  <a href="https://slides.com/"><img src="https://static.slid.es/images/slides-github-banner-320x40.png?1" alt="Slides" width="160" height="20"></a>
-</p>
+# MCP Server Talk Repository
+
+This repository contains a presentation about Model Context Protocol (MCP) and demo materials.
+
+## Repository Structure
+
+```
+├── presentation/            # Complete reveal.js presentation
+│   ├── index.html          # Main presentation file
+│   ├── deck/              # Presentation assets (images)
+│   ├── lib/               # Reveal.js dependencies
+│   ├── css/               # Stylesheets
+│   ├── js/                # JavaScript files
+│   ├── package.json       # Node.js dependencies
+│   ├── gulpfile.js        # Build configuration
+│   └── presentation-content.md # Content planning document
+├── demo/                   # Demo materials (empty, ready for future content)
+└── README.md              # This file
+```
+
+## Running the Presentation
+
+### Option 1: Using Node.js (if npm is available)
+```bash
+cd presentation
+npm install
+npm start
+```
+
+### Option 2: Using Python HTTP Server
+```bash
+cd presentation
+python3 -m http.server 8000
+```
+
+Then open your browser and navigate to `http://localhost:8000`
+
+### Option 3: Using any other HTTP server
+Any static file server can be used to serve the presentation from the `presentation/` directory.
+
+## About the Presentation
+
+The presentation covers:
+- Model Context Protocol (MCP) fundamentals
+- MCP architecture and components
+- Security considerations
+- Implementation examples
+- Best practices
+
+## Original reveal.js Framework
 
 reveal.js is an open source HTML presentation framework. It enables anyone with a web browser to create beautiful presentations for free. Check out the live demo at [revealjs.com](https://revealjs.com/).
 
@@ -24,7 +66,7 @@ Want to create reveal.js presentation in a graphical editor? Try <https://slides
 - 🖌 [Try the visual editor for reveal.js at Slides.com](https://slides.com/)
 - 🎬 [Watch the reveal.js video course (paid)](https://revealjs.com/course)
 
---- 
+---
 <div align="center">
   MIT licensed | Copyright © 2011-2024 Hakim El Hattab, https://hakim.se
 </div>

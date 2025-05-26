@@ -1,0 +1,76 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Repository Restructuring Plan
+
+## Overview
+Restructuring the repository to separate presentation content from demo materials and maintain functionality.
+
+## Current Structure
+```
+├── index.html                 # Main presentation file
+├── deck/                     # Presentation assets (images)
+├── lib/                      # Reveal.js dependencies
+├── css/                      # Stylesheets
+├── js/                       # JavaScript files
+├── presentation-content.md   # Content planning document
+├── package.json              # Node.js dependencies
+├── gulpfile.js              # Build configuration
+└── other reveal.js files...
+```
+
+## Target Structure
+```
+├── presentation/
+│   ├── index.html           # Main presentation file
+│   ├── deck/               # Presentation assets
+│   ├── lib/                # Reveal.js dependencies
+│   ├── css/                # Stylesheets
+│   ├── js/                 # JavaScript files
+│   ├── package.json        # Node.js dependencies
+│   ├── gulpfile.js         # Build configuration
+│   └── presentation-content.md
+├── demo/
+│   └── (empty for now, ready for demo content)
+└── README.md (updated)
+```
+
+## Implementation Steps
+1. Create `/presentation` directory
+2. Move all presentation-related files to `/presentation`
+3. Create empty `/demo` directory for future use
+4. Update paths in presentation files to work from new location
+5. Update package.json scripts if needed
+6. Test that presentation still works when run from `/presentation` folder
+7. Update README.md with new structure information
+
+## Files to Move
+- index.html → presentation/index.html
+- deck/ → presentation/deck/
+- lib/ → presentation/lib/
+- css/ → presentation/css/
+- js/ → presentation/js/
+- package.json → presentation/package.json
+- package-lock.json → presentation/package-lock.json
+- gulpfile.js → presentation/gulpfile.js
+- presentation-content.md → presentation/presentation-content.md
+- node_modules/ → presentation/node_modules/
+- dist/ → presentation/dist/
+- plugin/ → presentation/plugin/
+- examples/ → presentation/examples/
+- test/ → presentation/test/
+- reveal.js/ → presentation/reveal.js/
+
+## Files to Keep at Root
+- README.md (update to reflect new structure)
+- LICENSE
+- .gitignore (update if needed)
+- .git/
+- .cursor/
+
+metadata:
+  priority: high
+  version: 1.0
+  author: AI Assistant
