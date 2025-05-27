@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "math-assistant-uv": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/3",
+        "simple_mcp_server.py"
+      ]
+    }
+  }
+}
