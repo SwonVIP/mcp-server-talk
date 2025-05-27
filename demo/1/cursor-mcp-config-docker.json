@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "math-assistant-docker": {
-      "command": "docker",
-      "args": ["run", "-i", "--rm", "math-mcp-server:latest"]
-    }
-  }
-}

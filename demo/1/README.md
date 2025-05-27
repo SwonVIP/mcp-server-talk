@@ -1,196 +1,238 @@
-# Math Assistant MCP Server Demo
+# Math Assistant MCP Server - Docker Edition
 
-This directory contains a Math Assistant MCP (Model Context Protocol) server built with FastMCP that demonstrates mathematical calculation capabilities.
-
-## What This Demo Shows
-
-This Math Assistant MCP server demonstrates:
-
-- **Tools**: Mathematical functions that can be called by LLMs (arithmetic, advanced calculations)
-- **Resources**: Information that can be read by LLMs (server info, available operations)
-- **Prompts**: Reusable interaction templates for mathematical assistance
+This is a dockerized version of the Math Assistant MCP Server, following the pattern used by the [GitHub MCP Server](https://github.com/github/github-mcp-server).
 
 ## Features
 
-### Available Tools
-- `add_numbers(a, b)` - Add two numbers together
-- `subtract_numbers(a, b)` - Subtract two numbers
-- `multiply_numbers(a, b)` - Multiply two numbers
-- `divide_numbers(a, b)` - Divide two numbers
-- `power(base, exponent)` - Raise a number to a power
-- `square_root(number)` - Calculate square root
-- `factorial(n)` - Calculate factorial of an integer
-- `calculate_percentage(part, whole)` - Calculate percentage
-- `calculate_average(numbers)` - Calculate average of a list
-
-### Available Resources
-- `file://server-info` - Information about the server and its mathematical capabilities
-
-### Available Prompts
-- `math-helper` - Template for mathematical assistance
-- `calculator` - Template for step-by-step calculation assistance
+- **Dockerized**: Runs in a secure, isolated container
+- **Mathematical Tools**: Add, subtract, multiply, divide, and more
+- **MCP Protocol**: Full Model Context Protocol support
+- **FastMCP Framework**: Built with the FastMCP Python framework
+- **Security**: Runs as non-root user in container
 
 ## Prerequisites
 
-- Python 3.8 or higher
-- pip or uv package manager
+1. **Docker**: Make sure Docker is installed and running
+   - [Install Docker Desktop](https://www.docker.com/products/docker-desktop/)
+   - Verify installation: `docker --version`
 
-## Installation
+2. **MCP Client**: Claude Desktop, Cursor, or another MCP-compatible client
 
-1. **Navigate to this directory:**
-   ```bash
-   cd demo/1
-   ```
+## Quick Start
 
-2. **Install dependencies:**
+### Option 1: Using the Build Script (Recommended)
 
-   Using uv (recommended):
-   ```bash
-   uv pip install -r requirements.txt
-   ```
-
-   Using pip:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Running the Server
-
-### Method 1: Direct Python execution
 ```bash
-python simple_mcp_server.py
+# Build and run the container
+./build.sh
+
+# Or run individual commands
+./build.sh build    # Build the image
+./build.sh run      # Run the container
+./build.sh logs     # View logs
+./build.sh stop     # Stop the container
+./build.sh clean    # Remove container and image
 ```
 
-### Method 2: Using FastMCP CLI
+### Option 2: Using Docker Commands
+
 ```bash
-fastmcp run simple_mcp_server.py
+# Build the Docker image
+docker build -t math-mcp-server:latest .
+
+# Run the container
+docker run -d --name math-mcp-server math-mcp-server:latest
+
+# View logs
+docker logs math-mcp-server
+
+# Stop the container
+docker stop math-mcp-server
 ```
 
-The server will start and be ready to accept MCP connections.
+### Option 3: Using Docker Compose
 
-## Cursor Configuration
+```bash
+# Build and run
+docker-compose up -d
 
-To use this Math Assistant MCP server with Cursor, add the following configuration to your Cursor `mcp.json` file:
+# View logs
+docker-compose logs -f
 
-### Location of mcp.json
-- **macOS**: `~/Library/Application Support/Cursor/User/globalStorage/rooveterinaryinc.roo-cline/settings/cline_mcp_settings.json`
-- **Windows**: `%APPDATA%\Cursor\User\globalStorage\rooveterinaryinc.roo-cline\settings\cline_mcp_settings.json`
-- **Linux**: `~/.config/Cursor/User/globalStorage/rooveterinaryinc.roo-cline/settings/cline_mcp_settings.json`
+# Stop
+docker-compose down
+```
 
-### Configuration to Add
+## Configuration
+
+### For Cursor/VS Code
+
+Add this configuration to your MCP settings:
 
 ```json
 {
   "mcpServers": {
-    "math-assistant": {
-      "command": "python",
-      "args": ["/absolute/path/to/demo/1/simple_mcp_server.py"],
-      "cwd": "/absolute/path/to/demo/1"
+    "math-assistant-docker": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "math-mcp-server:latest"
+      ]
     }
   }
 }
 ```
 
-**Important**: Replace `/absolute/path/to/demo/1` with the actual absolute path to this directory on your system.
+### For Claude Desktop
 
-### Alternative Configuration (using uv)
-
-If you prefer to use uv:
+Add this to your `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
-    "math-assistant": {
-      "command": "uv",
-      "args": ["run", "python", "simple_mcp_server.py"],
-      "cwd": "/absolute/path/to/demo/1"
+    "math-assistant-docker": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "math-mcp-server:latest"
+      ]
     }
   }
 }
 ```
 
-## Testing the Server
+## Available Tools
 
-Once the server is running and configured in Cursor, you can test it by:
+The Math Assistant provides these mathematical tools:
 
-1. **Using Math Tools**: Ask Cursor to perform mathematical calculations
-   - "Can you add 15 and 27 for me?"
-   - "What's the square root of 144?"
-   - "Calculate 5 factorial"
-   - "What percentage is 25 out of 200?"
-   - "Find the average of these numbers: 10, 20, 30, 40, 50"
+- **add_numbers(a, b)**: Add two numbers
+- **subtract_numbers(a, b)**: Subtract two numbers
+- **multiply_numbers(a, b)**: Multiply two numbers
+- **divide_numbers(a, b)**: Divide two numbers
+- **power(base, exponent)**: Raise to a power
+- **square_root(number)**: Calculate square root
+- **factorial(n)**: Calculate factorial
+- **calculate_percentage(part, whole)**: Calculate percentage
+- **calculate_average(numbers)**: Calculate average of a list
 
-2. **Accessing Resources**: Ask Cursor to read server information
-   - "What mathematical operations are available from the server-info resource?"
+## Available Resources
 
-3. **Using Prompts**: Ask Cursor to use the predefined prompts
-   - "Use the math-helper prompt to help me with multiplication"
-   - "Use the calculator prompt for step-by-step division"
+- **file://server-info**: Information about the server and its capabilities
 
-## Example Interactions
+## Available Prompts
 
-### Basic Arithmetic
+- **math-helper**: General math assistance prompt
+- **calculator**: Step-by-step calculation assistance
+
+## Docker Architecture
+
+The Docker setup follows best practices:
+
+- **Base Image**: Python 3.11 slim for minimal size
+- **Security**: Runs as non-root user
+- **Caching**: Optimized layer caching for faster builds
+- **Clean**: Uses .dockerignore to exclude unnecessary files
+
+## Development
+
+### Building from Source
+
+```bash
+# Clone the repository (if needed)
+git clone <repository-url>
+cd demo/1
+
+# Build the image
+docker build -t math-mcp-server:latest .
+
+# Run for development (with logs)
+docker run --rm -it math-mcp-server:latest
 ```
-User: "Can you multiply 42 and 58?"
-Assistant: I'll use the multiply_numbers tool to calculate that for you.
-[Uses multiply_numbers(42, 58)]
-Result: 2436
+
+### Debugging
+
+```bash
+# Run with shell access
+docker run --rm -it --entrypoint /bin/bash math-mcp-server:latest
+
+# View container logs
+docker logs math-mcp-server
+
+# Follow logs in real-time
+docker logs -f math-mcp-server
 ```
 
-### Advanced Calculations
-```
-User: "What's 2 to the power of 8?"
-Assistant: I'll calculate that using the power tool.
-[Uses power(2, 8)]
-Result: 256
-```
+## Comparison with GitHub MCP Server
 
-### Statistical Calculations
-```
-User: "Find the average of 85, 92, 78, 96, 89"
-Assistant: I'll calculate the average using the calculate_average tool.
-[Uses calculate_average([85, 92, 78, 96, 89])]
-Result: 88.0
-```
+This implementation follows the same patterns as the [GitHub MCP Server](https://github.com/github/github-mcp-server):
 
-## File Structure
-
-```
-demo/1/
-├── simple_mcp_server.py    # Main Math Assistant MCP server implementation
-├── requirements.txt        # Python dependencies
-├── README.md              # This file
-└── cursor-mcp-config.json # Sample Cursor configuration
-```
+| Feature | GitHub MCP Server | Math Assistant MCP Server |
+|---------|-------------------|---------------------------|
+| Language | Go | Python |
+| Base Image | golang:alpine | python:3.11-slim |
+| Security | Non-root user | Non-root user |
+| Transport | stdio | stdio |
+| Configuration | Environment variables | Direct configuration |
+| Build Script | Yes | Yes |
+| Docker Compose | No | Yes |
 
 ## Troubleshooting
 
-### Server Won't Start
-- Ensure FastMCP is installed: `pip list | grep fastmcp`
-- Check Python version: `python --version` (should be 3.8+)
-- Verify the script runs: `python simple_mcp_server.py`
+### Container Won't Start
 
-### Cursor Can't Connect
-- Verify the absolute path in your mcp.json configuration
-- Ensure the server is running before trying to use it in Cursor
-- Check Cursor's developer console for error messages
+```bash
+# Check if Docker is running
+docker info
 
-### Tools Not Working
-- Restart Cursor after updating mcp.json
-- Verify the server is responding by checking its output
-- Make sure you're using the exact tool names as defined in the server
+# Check container logs
+docker logs math-mcp-server
 
-## Next Steps
+# Run in interactive mode to debug
+docker run --rm -it math-mcp-server:latest
+```
 
-After getting this Math Assistant server working, you can:
+### Permission Issues
 
-1. **Extend the server** by adding more mathematical functions (trigonometry, logarithms, etc.)
-2. **Explore the FastMCP documentation** at https://gofastmcp.com
-3. **Build specialized servers** for specific mathematical domains
-4. **Integrate with mathematical libraries** like NumPy or SciPy
+```bash
+# Rebuild the image
+docker build --no-cache -t math-mcp-server:latest .
 
-## Resources
+# Check if running as correct user
+docker exec math-mcp-server whoami
+```
 
-- [FastMCP Documentation](https://gofastmcp.com)
-- [Model Context Protocol Specification](https://modelcontextprotocol.io)
-- [FastMCP GitHub Repository](https://github.com/jlowin/fastmcp)
+### MCP Client Connection Issues
+
+1. Ensure the Docker image is built: `docker images | grep math-mcp-server`
+2. Test the container manually: `docker run --rm -it math-mcp-server:latest`
+3. Check MCP client configuration syntax
+4. Restart your MCP client after configuration changes
+
+## Security Considerations
+
+- Container runs as non-root user (`mcp`)
+- No sensitive data is stored in the image
+- Uses minimal base image to reduce attack surface
+- No network ports exposed (uses stdio transport)
+
+## License
+
+This project follows the same MIT license pattern as other MCP servers.
+
+## Contributing
+
+1. Fork the repository
+2. Make your changes
+3. Test with Docker: `./build.sh`
+4. Submit a pull request
+
+## Support
+
+For issues related to:
+- **Docker setup**: Check the troubleshooting section above
+- **MCP protocol**: Refer to the [MCP documentation](https://modelcontextprotocol.io/)
+- **FastMCP framework**: Check the [FastMCP documentation](https://github.com/jlowin/fastmcp)

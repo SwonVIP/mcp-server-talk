@@ -56,6 +56,3 @@ README.md
 
 # Setup scripts
 setup.sh
-
-# Config files (may contain sensitive data)
-cursor-mcp-config-fixed.json
