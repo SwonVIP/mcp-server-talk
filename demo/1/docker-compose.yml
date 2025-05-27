@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  math-mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: math-mcp-server
+    restart: unless-stopped
+    # For stdio transport, we don't need to expose ports
+    # ports:
+    #   - "3000:3000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    # Mount volumes if you need persistent data
+    # volumes:
+    #   - ./data:/app/data
+    # For debugging, you can override the entrypoint
+    # entrypoint: ["python", "-u", "simple_mcp_server.py"]

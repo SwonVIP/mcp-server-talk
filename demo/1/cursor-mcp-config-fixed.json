@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "math-assistant": {
+      "command": "uv",
+      "args": ["run", "python", "simple_mcp_server.py"],
+      "cwd": "/Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/1"
+    }
+  }
+}
