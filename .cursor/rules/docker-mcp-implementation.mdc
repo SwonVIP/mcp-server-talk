@@ -1,0 +1,195 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Docker MCP Server Implementation Plan
+
+## Overview
+This document outlines the implementation plan for converting the Python MCP server to use Docker, following the pattern established by the GitHub MCP Server.
+
+## Implementation Checklist
+
+### ✅ Core Docker Files
+- [x] **Dockerfile**: Multi-stage build with Python 3.11 slim base
+- [x] **.dockerignore**: Exclude unnecessary files from build context
+- [x] **docker-compose.yml**: Container orchestration for development
+- [x] **build.sh**: Comprehensive build and management script
+
+### ✅ Security Improvements
+- [x] **Non-root user**: Container runs as `mcp` user for security
+- [x] **Minimal base image**: Using Python 3.11 slim to reduce attack surface
+- [x] **No exposed ports**: Uses stdio transport, no network exposure
+- [x] **Clean dependencies**: Only essential packages installed
+
+### ✅ Code Modifications
+- [x] **Removed hardcoded paths**: Eliminated `/Users/sven.scheffel/recipe.txt` dependency
+- [x] **Simplified add_numbers**: Now returns just the calculation result
+- [x] **Container-friendly**: No file system dependencies outside container
+
+### ✅ Configuration Files
+- [x] **cursor-mcp-config-docker.json**: Docker-based MCP client configuration
+- [x] **Updated requirements.txt**: Maintained existing FastMCP dependency
+
+### ✅ Documentation
+- [x] **README-Docker.md**: Comprehensive Docker setup and usage guide
+- [x] **Comparison table**: Shows differences with GitHub MCP Server
+- [x] **Troubleshooting guide**: Common issues and solutions
+- [x] **Multiple deployment options**: Build script, Docker commands, Docker Compose
+
+## Architecture Comparison
+
+| Component | GitHub MCP Server | Math Assistant MCP Server |
+|-----------|-------------------|---------------------------|
+| **Language** | Go | Python |
+| **Base Image** | golang:alpine | python:3.11-slim |
+| **Build Tool** | Go build | pip install |
+| **Security** | Non-root user | Non-root user (mcp) |
+| **Transport** | stdio | stdio |
+| **Config** | Environment variables | Direct configuration |
+| **Management** | Build script | Build script + Docker Compose |
+
+## Key Features Implemented
+
+### 1. **Docker Best Practices**
+- Multi-layer caching optimization
+- Minimal attack surface
+- Security-first approach
+- Clean build context
+
+### 2. **Development Experience**
+- Easy build script with colored output
+- Multiple deployment options
+- Comprehensive logging
+- Debug-friendly setup
+
+### 3. **Production Ready**
+- Restart policies
+- Health checks via logs
+- Container lifecycle management
+- Resource optimization
+
+### 4. **MCP Protocol Compliance**
+- Stdio transport support
+- Full tool, resource, and prompt support
+- Compatible with Claude Desktop and Cursor
+- Follows MCP specification
+
+## Usage Patterns
+
+### Development Workflow
+```bash
+# Quick start
+./build.sh
+
+# Development cycle
+./build.sh build    # Build new image
+./build.sh run      # Test container
+./build.sh logs     # Debug issues
+./build.sh clean    # Clean up
+```
+
+### Production Deployment
+```bash
+# Using Docker Compose
+docker-compose up -d
+
+# Using direct Docker commands
+docker run -d --name math-mcp-server --restart unless-stopped math-mcp-server:latest
+```
+
+### Client Configuration
+```json
+{
+  "mcpServers": {
+    "math-assistant-docker": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "math-mcp-server:latest"]
+    }
+  }
+}
+```
+
+## Benefits Achieved
+
+### 1. **Portability**
+- Runs consistently across different environments
+- No Python version conflicts
+- Isolated dependencies
+
+### 2. **Security**
+- Sandboxed execution
+- No host system access
+- Minimal attack surface
+
+### 3. **Scalability**
+- Easy to deploy multiple instances
+- Container orchestration ready
+- Resource management
+
+### 4. **Maintainability**
+- Clear separation of concerns
+- Standardized deployment
+- Easy updates and rollbacks
+
+## Next Steps
+
+### Immediate
+- [x] Test Docker build process
+- [x] Verify MCP client integration
+- [x] Document usage patterns
+
+### Future Enhancements
+- [ ] Multi-architecture builds (ARM64, AMD64)
+- [ ] Container registry publishing
+- [ ] Kubernetes deployment manifests
+- [ ] Health check endpoints
+- [ ] Metrics and monitoring
+- [ ] Configuration via environment variables
+
+## Testing Strategy
+
+### Unit Tests
+- Container builds successfully
+- Python dependencies install correctly
+- MCP server starts without errors
+
+### Integration Tests
+- MCP client can connect to containerized server
+- All tools function correctly
+- Resources and prompts are accessible
+
+### Security Tests
+- Container runs as non-root user
+- No unnecessary capabilities
+- Minimal file system access
+
+## Deployment Options
+
+### 1. **Local Development**
+```bash
+./build.sh
+```
+
+### 2. **Docker Compose**
+```bash
+docker-compose up -d
+```
+
+### 3. **Direct Docker**
+```bash
+docker run -d --name math-mcp-server math-mcp-server:latest
+```
+
+### 4. **Container Registry**
+```bash
+# Future: Push to registry
+docker tag math-mcp-server:latest registry.example.com/math-mcp-server:latest
+docker push registry.example.com/math-mcp-server:latest
+```
+
+## Conclusion
+
+The Docker implementation successfully follows the GitHub MCP Server pattern while adapting it for Python and the FastMCP framework. The result is a secure, portable, and maintainable MCP server that can be easily deployed in various environments.
+
+The implementation provides multiple deployment options, comprehensive documentation, and follows Docker best practices for security and performance.

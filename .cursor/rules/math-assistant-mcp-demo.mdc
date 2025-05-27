@@ -1,0 +1,91 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Math Assistant MCP Server Demo Implementation
+
+## Overview
+Successfully created and cleaned up a Math Assistant MCP Server demo using FastMCP in the `demo/1/` directory.
+
+## Implementation Details
+
+### Server Capabilities
+- **Name**: Math Assistant MCP Server
+- **Framework**: FastMCP
+- **Purpose**: Demonstrate mathematical calculation capabilities via MCP
+
+### Available Tools (9 total)
+1. `add_numbers(a, b)` - Add two numbers
+2. `subtract_numbers(a, b)` - Subtract two numbers  
+3. `multiply_numbers(a, b)` - Multiply two numbers
+4. `divide_numbers(a, b)` - Divide two numbers (with zero-division protection)
+5. `power(base, exponent)` - Raise to a power
+6. `square_root(number)` - Calculate square root (with negative number protection)
+7. `factorial(n)` - Calculate factorial (with negative number protection)
+8. `calculate_percentage(part, whole)` - Calculate percentage
+9. `calculate_average(numbers)` - Calculate average of a list
+
+### Available Resources (1 total)
+- `file://server-info` - Server information and capabilities
+
+### Available Prompts (2 total)
+- `math-helper` - General mathematical assistance template
+- `calculator` - Step-by-step calculation assistance template
+
+## Files Created/Updated
+
+### Core Files
+- `simple_mcp_server.py` - Main server implementation
+- `requirements.txt` - Dependencies (fastmcp>=0.4.0)
+- `README.md` - Comprehensive documentation
+- `cursor-mcp-config.json` - Sample Cursor configuration
+- `setup.sh` - Automated setup script
+
+### Key Changes Made
+1. **Renamed** from "Simple Demo Server" to "Math Assistant MCP Server"
+2. **Removed** non-math tools (todo management, text processing, time utilities)
+3. **Added** comprehensive math tools with error handling
+4. **Updated** all documentation and references
+5. **Fixed** resource URI format (added `file://` prefix)
+6. **Improved** setup script with proper testing
+
+## Cursor Integration
+
+### Configuration
+```json
+{
+  "mcpServers": {
+    "math-assistant": {
+      "command": "python",
+      "args": ["/Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/1/simple_mcp_server.py"],
+      "cwd": "/Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/1"
+    }
+  }
+}
+```
+
+### Testing Examples
+- "Can you multiply 42 and 58?"
+- "What's the square root of 144?"
+- "Calculate 5 factorial"
+- "What percentage is 25 out of 200?"
+- "Find the average of 85, 92, 78, 96, 89"
+
+## Setup Verification
+✅ Server imports successfully  
+✅ Available tools: 9  
+✅ Available resources: 1  
+✅ Available prompts: 2  
+
+## Next Steps
+1. Add configuration to Cursor mcp.json
+2. Run server: `python3 simple_mcp_server.py`
+3. Test mathematical calculations in Cursor
+4. Extend with additional math functions as needed
+
+## Technical Notes
+- Uses proper error handling for edge cases (division by zero, negative square roots, etc.)
+- Implements FastMCP best practices
+- Follows MCP protocol standards
+- Ready for production use in Cursor

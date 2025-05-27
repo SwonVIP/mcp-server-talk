@@ -1,0 +1,162 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# MCP Server Troubleshooting Guide
+
+## Current Status Analysis
+
+Based on your setup, I found:
+
+✅ **What's Working:**
+- FastMCP is installed (version 2.5.1)
+- MCP server code imports successfully
+- Configuration file exists at `/Users/sven.scheffel/.cursor/mcp.json`
+- Server is properly configured with correct paths
+
+❓ **Potential Issues:**
+
+### 1. Cursor MCP Feature Availability
+- MCP support in Cursor is still in beta/preview
+- Ensure you have the latest version of Cursor
+- Check if MCP features are enabled in your Cursor settings
+
+### 2. Configuration Location
+Your MCP config is at: `/Users/sven.scheffel/.cursor/mcp.json`
+This should be the correct global location for Cursor.
+
+### 3. Server Startup Issues
+The server might not be starting properly when Cursor tries to connect.
+
+## Troubleshooting Steps
+
+### Step 1: Verify Cursor Version and MCP Support
+1. Check Cursor version: Help → About
+2. Look for MCP-related settings in Cursor preferences
+3. Ensure you're using Cursor Pro (MCP might require Pro subscription)
+
+### Step 2: Test Server Manually
+```bash
+cd /Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/1
+python3 simple_mcp_server.py
+```
+The server should start and show available tools.
+
+### Step 3: Check Configuration Syntax
+Your current config looks correct:
+```json
+{
+  "mcpServers": {
+    "math-assistant": {
+      "command": "python3",
+      "args": [
+        "/Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/1/simple_mcp_server.py"
+      ],
+      "cwd": "/Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/1"
+    }
+  }
+}
+```
+
+### Step 4: Restart Cursor
+After configuration changes:
+1. Completely quit Cursor
+2. Restart Cursor
+3. Wait for MCP servers to initialize
+
+### Step 5: Check Cursor Logs
+Look for MCP-related errors in Cursor's developer console:
+- Help → Toggle Developer Tools
+- Check Console tab for MCP errors
+
+### Step 6: Simplify Configuration
+Try with minimal config first:
+```json
+{
+  "mcpServers": {
+    "math-assistant": {
+      "command": "python3",
+      "args": ["/Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/1/simple_mcp_server.py"]
+    }
+  }
+}
+```
+
+### Step 7: Alternative Configuration Locations
+Try placing config in project-specific location:
+- Create `.cursor/mcp.json` in your project root
+- Copy the same configuration there
+
+### Step 8: Environment Issues
+Ensure Python environment is accessible:
+```bash
+which python3
+python3 --version
+```
+
+### Step 9: Dependencies Check
+```bash
+cd /Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/1
+pip3 list | grep fastmcp
+```
+
+## Common Issues and Solutions
+
+### Issue: "Command not found: python3"
+**Solution:** Use full path to Python:
+```json
+"command": "/usr/bin/python3"
+```
+
+### Issue: "Module not found: fastmcp"
+**Solution:** Install in correct environment:
+```bash
+pip3 install fastmcp>=0.4.0
+```
+
+### Issue: "Permission denied"
+**Solution:** Make script executable:
+```bash
+chmod +x simple_mcp_server.py
+```
+
+### Issue: Tools not appearing in Cursor
+**Possible causes:**
+1. MCP feature not enabled
+2. Server failed to start
+3. Configuration syntax error
+4. Cursor needs restart
+5. MCP requires Cursor Pro subscription
+
+## Verification Commands
+
+Test your setup with these commands:
+
+```bash
+# Test Python and FastMCP
+python3 -c "import fastmcp; print('FastMCP OK')"
+
+# Test server import
+cd /Users/sven.scheffel/Documents/repositories/mcp-server-talk/demo/1
+python3 -c "from simple_mcp_server import mcp; print('Server OK')"
+
+# Check config file
+cat /Users/sven.scheffel/.cursor/mcp.json
+```
+
+## Next Steps
+
+1. **Immediate:** Restart Cursor completely
+2. **Check:** Look for MCP settings in Cursor preferences
+3. **Verify:** Cursor version supports MCP
+4. **Test:** Try the simplified configuration
+5. **Debug:** Check Cursor developer console for errors
+
+## Getting Help
+
+If issues persist:
+1. Check Cursor documentation for MCP setup
+2. Verify MCP feature availability in your Cursor version
+3. Look for MCP-related settings in Cursor preferences
+4. Consider if MCP requires a specific Cursor subscription tier
