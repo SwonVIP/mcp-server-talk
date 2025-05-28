@@ -3,3 +3,137 @@ description:
 globs:
 alwaysApply: false
 ---
+# Demo 3: UV-Based MCP Server Implementation
+
+<rule>
+name: demo_3_uv_mcp_server_implementation
+description: Implementation checklist and guidelines for the UV-based MCP server demo
+
+## Implementation Checklist
+
+### ✅ Core Files Created
+- [x] `demo/3/simple_mcp_server.py` - Main MCP server implementation
+- [x] `demo/3/pyproject.toml` - UV project configuration
+- [x] `demo/3/README.md` - Comprehensive documentation
+- [x] `demo/3/DEMO_GUIDE.md` - Quick demo guide
+- [x] `demo/3/setup.sh` - Setup and utility script
+- [x] `demo/3/cursor_mcp_config.json` - Sample Cursor configuration
+- [x] `demo/3/.gitignore` - Git ignore rules
+
+### ✅ MCP Server Features
+- [x] Mathematical tools (add, subtract, multiply, divide, power, sqrt, factorial, percentage, average)
+- [x] Resources (server-info, recipe content)
+- [x] Prompts (math-helper, calculator)
+- [x] Error handling for edge cases (division by zero, negative square roots, etc.)
+- [x] FastMCP framework integration
+
+### ✅ UV Integration
+- [x] Proper pyproject.toml configuration
+- [x] Python 3.10+ requirement (FastMCP compatibility)
+- [x] Simplified package structure (script-only, no build system)
+- [x] Dependency management with UV
+- [x] Virtual environment creation
+
+### ✅ Cursor Configuration
+- [x] Sample MCP configuration file
+- [x] Absolute path handling
+- [x] UV command structure for MCP clients
+- [x] Documentation for configuration steps
+
+### ✅ Documentation
+- [x] Comprehensive README with setup instructions
+- [x] Demo guide with step-by-step instructions
+- [x] Troubleshooting section
+- [x] Comparison with Docker version
+- [x] File structure documentation
+
+### ✅ Testing & Validation
+- [x] UV sync functionality verified
+- [x] Server startup testing
+- [x] Dependency resolution confirmed
+- [x] Setup script functionality
+
+## Key Implementation Decisions
+
+### UV Configuration
+- Used simplified pyproject.toml without build system
+- Focused on dependency management only
+- Avoided package building complexity
+- Used Python 3.10+ for FastMCP compatibility
+
+### MCP Server Structure
+- Copied core logic from Docker version (demo/1)
+- Maintained all mathematical tools and functionality
+- Added UV-specific documentation and branding
+- Preserved error handling and edge cases
+
+### Cursor Integration
+- Provided absolute path configuration
+- Used `uv run --directory` for proper execution
+- Created sample configuration file for easy copy-paste
+- Documented configuration steps clearly
+
+### Development Experience
+- Created comprehensive setup script with multiple commands
+- Added proper error handling and colored output
+- Provided both automated and manual setup options
+- Included testing and configuration display features
+
+## Usage Instructions
+
+### Quick Start
+```bash
+cd demo/3
+./setup.sh
+./setup.sh config  # Get Cursor configuration
+```
+
+### Manual Setup
+```bash
+cd demo/3
+uv sync
+uv run simple_mcp_server.py
+```
+
+### Cursor Configuration
+Add to MCP settings:
+```json
+{
+  "mcpServers": {
+    "math-assistant-uv": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/absolute/path/to/demo/3",
+        "simple_mcp_server.py"
+      ]
+    }
+  }
+}
+```
+
+## Advantages Over Docker Version
+
+1. **Faster Setup**: No Docker image building required
+2. **Lower Resource Usage**: No container overhead
+3. **Development Friendly**: Instant code changes
+4. **Simpler Dependencies**: Only UV required, not Docker
+5. **Cross-Platform**: Works natively on all platforms
+
+## Future Enhancements
+
+- [ ] Add more mathematical functions
+- [ ] Implement configuration file support
+- [ ] Add logging capabilities
+- [ ] Create automated tests
+- [ ] Add CI/CD pipeline
+- [ ] Create package distribution
+
+metadata:
+  priority: high
+  version: 1.0
+  demo: 3
+  technology: UV, FastMCP, Python
+  status: completed
+</rule>

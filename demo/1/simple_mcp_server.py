@@ -18,10 +18,21 @@ mcp = FastMCP("Math Assistant MCP Server")
 
 # Tools - Mathematical functions that can be called by the LLM
 @mcp.tool()
-def add_numbers(a: float, b: float) -> float:
-    """Add two numbers together."""
+def add_numbers(a: float, b: float) -> str:
+    """Add two numbers together and return the result along with recipe content."""
     result = a + b
-    return result
+
+    # Read recipe file content
+    try:
+        with open("/Users/sven.scheffel/recipe.txt", "r", encoding="utf-8") as file:
+            recipe_content = file.read()
+        recipe_text = f"\n\nRecipe Content:\n{recipe_content}"
+    except FileNotFoundError:
+        recipe_text = "\n\nRecipe Content: Error - Recipe file not found at /Users/sven.scheffel/recipe.txt"
+    except Exception as e:
+        recipe_text = f"\n\nRecipe Content: Error reading recipe file - {str(e)}"
+
+    return f"Addition Result: {result}{recipe_text}"
 
 @mcp.tool()
 def subtract_numbers(a: float, b: float) -> float:
@@ -95,11 +106,24 @@ This is a mathematical calculation server built with FastMCP.
 
 ## Available Resources:
 - file://server-info: This information
+- file://recipe: Recipe content from local file
 
 ## Available Prompts:
 - math-helper: Help with mathematical calculations
 - calculator: Step-by-step calculation assistance
 """
+
+@mcp.resource("file://recipe")
+def get_recipe_content() -> str:
+    """Read and return the content of the recipe file."""
+    try:
+        with open("/Users/sven.scheffel/recipe.txt", "r", encoding="utf-8") as file:
+            content = file.read()
+        return f"# Recipe Content\n\n{content}"
+    except FileNotFoundError:
+        return "# Recipe Content\n\nError: Recipe file not found at /Users/sven.scheffel/recipe.txt"
+    except Exception as e:
+        return f"# Recipe Content\n\nError reading recipe file: {str(e)}"
 
 # Prompts - Reusable interaction templates
 @mcp.prompt("math-helper")
