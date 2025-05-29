@@ -51,6 +51,13 @@ Once configured in Cursor, you can:
 - Access server information via resources
 - Use math helper prompts
 
+**Example Usage:**
+Simply ask natural language questions like:
+- "Add 5 and 7" - This will call the `add_numbers` function
+- "What's 15 minus 8?" - This will use the `subtract_numbers` function
+- "Calculate 6 times 9" - This will invoke the `multiply_numbers` function
+- "What's the square root of 64?" - This will use the `square_root` function
+
 ## Key Features Demonstrated
 
 ### Tools
