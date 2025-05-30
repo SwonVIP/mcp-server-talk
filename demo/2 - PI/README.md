@@ -6,5 +6,5 @@
 
 ## Example Prompt
 
-"I want to build add a new feature to my application using @DOC_HERE
-As a first step please list all existing PRs in my repo on Github"
+"I want to add a new feature to my application using @DOC_HERE
+As a first step please list all existing PRs in my repo on Github SwonVIP/mcp-server-talk"
