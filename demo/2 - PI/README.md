@@ -6,5 +6,6 @@
 
 ## Example Prompt
 
-"I want to add a new feature to my application using @DOC_HERE
-As a first step please list all existing PRs in my repo on Github SwonVIP/mcp-server-talk"
+"I want to build a carsharing app. As a first step please list all existing PRs in my repo on Github SwonVIP/mcp-server-talk and the create a PR for a "rent a car" component using the FluxJS framework @fluxjs.html
+Please follow Project Setup of the docs, I already installed it on my machine.
+After the setup please push the changes."
