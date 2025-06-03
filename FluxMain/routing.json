@@ -1,0 +1,34 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "component": "RentCarComponent",
+      "name": "rent-car"
+    },
+    {
+      "path": "/confirmation",
+      "component": "ConfirmationComponent",
+      "name": "confirmation"
+    },
+    {
+      "path": "/search",
+      "component": "RentCarComponent",
+      "name": "search-cars"
+    },
+    {
+      "path": "/booking/:carType",
+      "component": "RentCarComponent",
+      "name": "booking",
+      "params": ["carType"]
+    }
+  ],
+  "defaultRoute": "/",
+  "hashRouting": true,
+  "transitions": {
+    "default": {
+      "enter": "fade-in",
+      "exit": "fade-out",
+      "duration": 300
+    }
+  }
+}

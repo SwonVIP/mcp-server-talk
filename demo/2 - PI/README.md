@@ -6,6 +6,6 @@
 
 ## Example Prompt
 
-"I want to build a carsharing app. As a first step please list all existing PRs in my repo on Github SwonVIP/mcp-server-talk and the create a PR for a "rent a car" component using the FluxJS framework @fluxjs.html
+"I want to build a carsharing app. As a first step please list all existing PRs in my repo on Github SwonVIP/mcp-server-talk and then create a PR for a "rent a car" component using the FluxJS framework
 Please follow Project Setup of the docs, I already installed it on my machine.
 After the setup please push the changes."

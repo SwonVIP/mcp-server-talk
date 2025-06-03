@@ -1,0 +1,117 @@
+<!-- component.html -->
+<template id="rent-car-component">
+  <div class="rent-car-container">
+    <h1>🚗 Rent a Car</h1>
+    <p>Find and rent the perfect car for your journey</p>
+
+    <div class="car-search">
+      <div class="search-filters">
+        <div class="filter-group">
+          <label for="location">Pick-up Location:</label>
+          <input
+            type="text"
+            id="location"
+            placeholder="Enter city or airport"
+          />
+        </div>
+        <div class="filter-group">
+          <label for="pickup-date">Pick-up Date:</label>
+          <input type="date" id="pickup-date" />
+        </div>
+        <div class="filter-group">
+          <label for="return-date">Return Date:</label>
+          <input type="date" id="return-date" />
+        </div>
+        <button onclick="this.searchCars()" class="search-btn">
+          Search Cars
+        </button>
+      </div>
+    </div>
+
+    <div class="car-results" id="car-results">
+      <div class="car-card">
+        <img
+          src="https://via.placeholder.com/200x120/6f42c1/ffffff?text=Economy+Car"
+          alt="Economy Car"
+        />
+        <div class="car-info">
+          <h3>Economy Car</h3>
+          <p>Perfect for city driving</p>
+          <div class="car-features">
+            <span>🚗 4 seats</span>
+            <span>⛽ Great fuel economy</span>
+            <span>📱 Bluetooth</span>
+          </div>
+          <div class="price">$29/day</div>
+          <button onclick="this.rentCar('economy')" class="rent-btn">
+            Rent Now
+          </button>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <img
+          src="https://via.placeholder.com/200x120/28a745/ffffff?text=SUV"
+          alt="SUV"
+        />
+        <div class="car-info">
+          <h3>SUV</h3>
+          <p>Spacious and comfortable</p>
+          <div class="car-features">
+            <span>🚗 7 seats</span>
+            <span>🧳 Large cargo space</span>
+            <span>🔒 4WD available</span>
+          </div>
+          <div class="price">$59/day</div>
+          <button onclick="this.rentCar('suv')" class="rent-btn">
+            Rent Now
+          </button>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <img
+          src="https://via.placeholder.com/200x120/fd7e14/ffffff?text=Luxury+Car"
+          alt="Luxury Car"
+        />
+        <div class="car-info">
+          <h3>Luxury Car</h3>
+          <p>Premium experience</p>
+          <div class="car-features">
+            <span>✨ Premium interior</span>
+            <span>🎵 Premium audio</span>
+            <span>🛡️ Advanced safety</span>
+          </div>
+          <div class="price">$99/day</div>
+          <button onclick="this.rentCar('luxury')" class="rent-btn">
+            Rent Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-summary" id="booking-summary" style="display: none">
+      <h2>Booking Summary</h2>
+      <div id="selected-car"></div>
+      <div class="total-cost" id="total-cost"></div>
+      <button onclick="this.confirmBooking()" class="confirm-btn">
+        Confirm Booking
+      </button>
+      <button onclick="this.cancelBooking()" class="cancel-btn">Cancel</button>
+    </div>
+  </div>
+</template>
+
+<template id="confirmation-component">
+  <div class="confirmation-container">
+    <h1>🎉 Booking Confirmed!</h1>
+    <p>Your car rental has been successfully booked.</p>
+    <div class="confirmation-details">
+      <h3>Booking Details:</h3>
+      <div id="booking-details"></div>
+    </div>
+    <button onclick="this.newBooking()" class="new-booking-btn">
+      Book Another Car
+    </button>
+  </div>
+</template>
